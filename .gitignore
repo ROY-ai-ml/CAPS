@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environments
+.env
+
+# DB and storage
+rerun.db
+artifacts_store/
+sandbox/
+workspaces/
+.pytest_cache/
+
+# Node
+node_modules/
+dist/
+build/

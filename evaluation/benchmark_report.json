@@ -1,0 +1,259 @@
+{
+  "timestamp": 1788894426.798012,
+  "metrics": {
+    "Baseline_A": {
+      "total_tasks": 7,
+      "task_success_rate": 85.7,
+      "first_attempt_success_rate": 85.7,
+      "avg_attempts": 1.0,
+      "false_success_count": 1,
+      "false_success_rate": 14.3
+    },
+    "Baseline_B": {
+      "total_tasks": 7,
+      "task_success_rate": 85.7,
+      "first_attempt_success_rate": 85.7,
+      "avg_attempts": 1.29,
+      "false_success_count": 1,
+      "false_success_rate": 14.3
+    },
+    "ReRun": {
+      "total_tasks": 7,
+      "task_success_rate": 100.0,
+      "first_attempt_success_rate": 71.4,
+      "avg_attempts": 1.29,
+      "false_success_count": 0,
+      "false_success_rate": 0.0
+    }
+  },
+  "detailed_results": {
+    "Baseline_A": [
+      {
+        "task_id": "a_eval_data_analysis_01",
+        "baseline": "Baseline_A_OneShot",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 12240.512609481812,
+        "artifacts_count": 2,
+        "error": null
+      },
+      {
+        "task_id": "a_eval_recovery_keyerror_02",
+        "baseline": "Baseline_A_OneShot",
+        "success": false,
+        "exit_code": 1,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 3211.535692214966,
+        "artifacts_count": 1,
+        "error": "KeyError: 'Total_Revenue_Amount'"
+      },
+      {
+        "task_id": "a_eval_visualization_03",
+        "baseline": "Baseline_A_OneShot",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 3399.538278579712,
+        "artifacts_count": 2,
+        "error": null
+      },
+      {
+        "task_id": "a_eval_false_success_04",
+        "baseline": "Baseline_A_OneShot",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 170.27783393859863,
+        "artifacts_count": 0,
+        "error": null
+      },
+      {
+        "task_id": "a_eval_security_block_05",
+        "baseline": "Baseline_A_OneShot",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 11567.969799041748,
+        "artifacts_count": 2,
+        "error": null
+      },
+      {
+        "task_id": "a_eval_file_processing_06",
+        "baseline": "Baseline_A_OneShot",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 5606.775522232056,
+        "artifacts_count": 2,
+        "error": null
+      },
+      {
+        "task_id": "a_eval_multi_step_07",
+        "baseline": "Baseline_A_OneShot",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 2181.7562580108643,
+        "artifacts_count": 2,
+        "error": null
+      }
+    ],
+    "Baseline_B": [
+      {
+        "task_id": "b_eval_data_analysis_01",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 3932.2683811187744,
+        "artifacts_count": 2,
+        "false_success_unverified": false
+      },
+      {
+        "task_id": "b_eval_recovery_keyerror_02",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": false,
+        "exit_code": 1,
+        "attempts": 3,
+        "blocked": false,
+        "error": "Exceeded max retry limit."
+      },
+      {
+        "task_id": "b_eval_visualization_03",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 5177.601337432861,
+        "artifacts_count": 2,
+        "false_success_unverified": false
+      },
+      {
+        "task_id": "b_eval_false_success_04",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 418.0893898010254,
+        "artifacts_count": 0,
+        "false_success_unverified": true
+      },
+      {
+        "task_id": "b_eval_security_block_05",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 6162.94264793396,
+        "artifacts_count": 2,
+        "false_success_unverified": false
+      },
+      {
+        "task_id": "b_eval_file_processing_06",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 2081.4907550811768,
+        "artifacts_count": 2,
+        "false_success_unverified": false
+      },
+      {
+        "task_id": "b_eval_multi_step_07",
+        "baseline": "Baseline_B_SimpleRetry",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "blocked": false,
+        "duration_ms": 2059.2052936553955,
+        "artifacts_count": 2,
+        "false_success_unverified": false
+      }
+    ],
+    "ReRun": [
+      {
+        "task_id": "eval_data_analysis_01",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      },
+      {
+        "task_id": "eval_recovery_keyerror_02",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 2,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      },
+      {
+        "task_id": "eval_visualization_03",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      },
+      {
+        "task_id": "eval_false_success_04",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 2,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      },
+      {
+        "task_id": "eval_security_block_05",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      },
+      {
+        "task_id": "eval_file_processing_06",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      },
+      {
+        "task_id": "eval_multi_step_07",
+        "baseline": "ReRun_Full",
+        "success": true,
+        "exit_code": 0,
+        "attempts": 1,
+        "validation_passed": true,
+        "artifacts_count": 2,
+        "blocked": false
+      }
+    ]
+  }
+}

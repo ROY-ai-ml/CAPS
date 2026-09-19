@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: rerun_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: rerun
+      POSTGRES_PASSWORD: rerun_secret_password
+      POSTGRES_DB: rerun_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rerun -d rerun_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: rerun_backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://rerun:rerun_secret_password@postgres:5432/rerun_db
+      - LLM_PROVIDER=mock
+      - DOCKER_IMAGE=rerun-sandbox:latest
+      - ALLOW_LOCAL_FALLBACK_FOR_TESTING=true
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/workspaces:/app/workspaces
+      - ./backend/artifacts_store:/app/artifacts_store
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: rerun_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

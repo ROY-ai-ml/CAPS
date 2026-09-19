@@ -1,0 +1,100 @@
+"""Core Enums for ReRun System."""
+from enum import Enum
+
+
+class TaskState(str, Enum):
+    """Formal 17-State Finite State Machine States."""
+    RECEIVED = "RECEIVED"
+    PLANNING = "PLANNING"
+    PLAN_READY = "PLAN_READY"
+    GENERATING = "GENERATING"
+    SECURITY_CHECK = "SECURITY_CHECK"
+    EXECUTING = "EXECUTING"
+    OBSERVING = "OBSERVING"
+    ANALYZING_FAILURE = "ANALYZING_FAILURE"
+    REPAIRING = "REPAIRING"
+    RETRYING = "RETRYING"
+    VALIDATING = "VALIDATING"
+    REPLANNING = "REPLANNING"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    BLOCKED = "BLOCKED"
+    TIMEOUT = "TIMEOUT"
+    CANCELLED = "CANCELLED"
+
+
+class ErrorType(str, Enum):
+    """Deterministic 15-Class Error Taxonomy."""
+    SYNTAX_ERROR = "SYNTAX_ERROR"
+    IMPORT_ERROR = "IMPORT_ERROR"
+    NAME_ERROR = "NAME_ERROR"
+    TYPE_ERROR = "TYPE_ERROR"
+    VALUE_ERROR = "VALUE_ERROR"
+    KEY_ERROR = "KEY_ERROR"
+    INDEX_ERROR = "INDEX_ERROR"
+    FILE_ERROR = "FILE_ERROR"
+    NETWORK_ERROR = "NETWORK_ERROR"
+    TIMEOUT = "TIMEOUT"
+    MEMORY_LIMIT = "MEMORY_LIMIT"
+    CPU_LIMIT = "CPU_LIMIT"
+    SECURITY_VIOLATION = "SECURITY_VIOLATION"
+    DEPENDENCY_ERROR = "DEPENDENCY_ERROR"
+    LOGIC_ERROR = "LOGIC_ERROR"
+    OUTPUT_ERROR = "OUTPUT_ERROR"
+    UNKNOWN_ERROR = "UNKNOWN_ERROR"
+
+
+class NetworkPolicy(str, Enum):
+    """Sandbox Network Egress Policies."""
+    DISABLED = "DISABLED"
+    ALLOWLIST = "ALLOWLIST"
+    CONTROLLED = "CONTROLLED"
+
+
+class AgentType(str, Enum):
+    """Specialized Agent Roles in ReRun Hierarchy."""
+    MASTER = "master_agent"
+    PLANNER = "planner_agent"
+    CODING = "coding_agent"
+    SECURITY = "security_engine"
+    SANDBOX = "sandbox_engine"
+    OBSERVER = "observer"
+    RECOVERY = "recovery_agent"
+    VALIDATOR = "task_validator"
+
+
+class EventType(str, Enum):
+    """WebSocket / SSE Real-time Events."""
+    TASK_CREATED = "task_created"
+    STATE_TRANSITION = "state_transition"
+    PLANNING_STARTED = "planning_started"
+    PLAN_GENERATED = "plan_generated"
+    CODE_GENERATED = "code_generated"
+    SECURITY_CHECK_STARTED = "security_check_started"
+    SECURITY_CHECK_PASSED = "security_check_passed"
+    SECURITY_VIOLATION = "security_violation"
+    SANDBOX_STARTED = "sandbox_started"
+    SANDBOX_OUTPUT = "sandbox_output"
+    EXECUTION_FINISHED = "execution_finished"
+    TIMEOUT_DETECTED = "timeout_detected"
+    ANALYSIS_STARTED = "analysis_started"
+    FAILURE_ANALYZED = "failure_analyzed"
+    RECOVERY_STARTED = "recovery_started"
+    REPAIR_PRODUCED = "repair_produced"
+    RETRY_STAGED = "retry_staged"
+    VALIDATION_STARTED = "validation_started"
+    VALIDATION_RESULT = "validation_result"
+    TASK_COMPLETED = "task_completed"
+    TASK_FAILED = "task_failed"
+    TASK_CANCELLED = "task_cancelled"
+
+
+class FinalStatus(str, Enum):
+    """Terminal Task Status Categories."""
+    COMPLETED = "completed"
+    FAILED_AFTER_RETRIES = "failed_after_retries"
+    BLOCKED_BY_SECURITY = "blocked_by_security"
+    TIMEOUT = "timeout"
+    RESOURCE_LIMIT = "resource_limit"
+    CANCELLED = "cancelled"
+    VALIDATION_FAILED = "validation_failed"
